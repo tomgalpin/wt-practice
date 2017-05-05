@@ -357,6 +357,13 @@ module.exports = function (grunt) {
       }
     },
 
+    heroku: {
+            options: {
+              remote: 'https://git.heroku.com/quiet-mountain-87881.git',
+              branch: 'heroku-deploy',
+              tag: pkg.version
+            }
+          },
     htmlmin: {
       dist: {
         options: {
@@ -465,6 +472,7 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-build-control');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
