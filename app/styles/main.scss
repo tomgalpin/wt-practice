@@ -1,0 +1,177 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+$nav-border-color: #e7e7e7;
+$nav-background-color: #f8f8f8;
+$correct-color: rgb(136, 243, 43);
+$incorrect-color: rgb(215, 44, 44);
+$correct-color-opacity: rgba(136, 243, 43, 0.3);
+$incorrect-color-opacity: rgba(215, 44, 44, 0.3);
+$score-button-color: #e5e5e5;
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+body {
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+        display: inline-block;
+    }
+}
+
+.hover { cursor: pointer; }
+.clicked { cursor: default; }
+.strike-through { text-decoration: line-through; }
+
+.circle {
+    display: inline-block;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    &.correct { background-color: $correct-color; }
+    &.incorrect { background-color: $incorrect-color;}
+}
+
+/* Nav Bar(s) */
+.header {
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid $nav-border-color;
+    margin-bottom: 10px;
+    a {
+        border-left: 1px solid $nav-border-color;
+        border-right: 1px solid $nav-border-color;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .nav-name {
+        height: 50px;
+        padding: 0 20px 0 20px;
+        line-height: 50px;
+    }
+    .bottom-navbar {
+        position: fixed;
+        z-index: 1000;
+        top: 51px;
+        right: 50%;
+        width: 400px;
+        margin-right: -200px;
+        background: $nav-background-color;
+        border-right: 1px solid $nav-border-color;
+        border-left: 1px solid $nav-border-color;
+        border-bottom: 1px solid $nav-border-color;
+    }
+    .center {
+        margin: 0 30px 0 30px;
+    }
+    .score-item,
+    span {
+        margin-right: 15px;
+    }
+    .score-item {
+        height: 50px;
+        line-height: 50px;
+        float: left;
+    }
+    .score-item:last-child {
+        float: right;
+        margin-right: 0;
+    }
+    button {
+        &:hover {
+            background: $score-button-color;
+        }
+    }
+    .num {
+        font-size: 30px;
+    }
+
+}
+
+/* Main Body/Game Boards */
+.main {
+    min-height: 450px;
+    margin: 110px 20px 20px 20px;
+    .image-size {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+    }
+    .employee-image {
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+    .header {
+        text-align: center;
+        .employee-image {
+            display: inline-block;
+        }
+    }
+    h1 {
+        text-align: center;
+        margin: 60px 0 20px 0;
+    }
+    .list-view {
+        text-align: center;
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .list-item {
+        &.reverse {
+            .name-size {
+                padding: 20px;
+                span {
+                    font-size: 35px;
+                    &.correct { color: $correct-color; }
+                    &.incorrect { color: $incorrect-color; }
+                }
+            }
+        }
+        .employee-image {
+            position: relative;
+            &.correct { box-shadow: inset 0 0 0 1000px $correct-color-opacity; }
+            &.incorrect { box-shadow: inset 0 0 0 1000px $incorrect-color-opacity; }
+            .employee-name {
+                color: #fff;
+                font-size: 20px;
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+    /* Remove the padding set earlier */
+    .header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .header {
+        margin-bottom: 30px;
+    }
+}
